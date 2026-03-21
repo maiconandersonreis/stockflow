@@ -1,10 +1,13 @@
 DC = docker compose
 WEB = $(DC) run --rm web
 
-.PHONY: up down restart logs console test
+.PHONY: up up-d down restart logs console test
 
 up:
 	$(DC) up
+
+up-d:
+	$(DC) up -d
 
 down:
 	$(DC) down

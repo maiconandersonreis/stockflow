@@ -32,14 +32,15 @@ O StockFlow é uma aplicação web completa de gestão de estoque, onde usuário
 git clone https://github.com/maiconandersonreis/stockflow.git
 cd stockflow
 cp .env.example .env
-make up
+make up-d
 docker compose run web rails db:create db:migrate
 ```
 
 ## Comandos Make
 
 ```
-make up       # sobe os serviços
+make up       # sobe os serviços (attached)
+make up-d     # sobe os serviços em background
 make down     # para os containers
 make restart  # reinicia os serviços
 make logs     # logs em tempo real
@@ -49,8 +50,10 @@ make test     # roda os testes
 
 ## Acessos
 
-- Aplicação: http://localhost:3000
-- Sidekiq: http://localhost:3000/sidekiq
+- Aplicação: https://localhost
+- Sidekiq: https://localhost/sidekiq
+
+> Na primeira vez, o browser vai exibir um aviso sobre o certificado — basta aceitar para prosseguir.
 
 ## Autor
 

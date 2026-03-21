@@ -1,0 +1,8 @@
+http://localhost {
+  redir https://localhost{uri} permanent
+}
+
+https://localhost {
+  reverse_proxy web:3000
+  tls internal
+}

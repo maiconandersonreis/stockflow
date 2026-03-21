@@ -1,24 +1,57 @@
-# README
+# StockFlow
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Sistema web de gerenciamento de estoque desenvolvido com Ruby on Rails 8.
 
-Things you may want to cover:
+## Sobre o Projeto
 
-* Ruby version
+O StockFlow é uma aplicação web completa de gestão de estoque, onde usuários autenticados poderão:
 
-* System dependencies
+- Cadastrar e gerenciar produtos com código SKU, descrição e estoque mínimo
+- Registrar entradas e saídas de estoque com histórico completo
+- Visualizar o estoque atual de cada produto calculado em tempo real com base nas movimentações
+- Receber notificações (e-mail e/ou WhatsApp) sobre criação, edição e exclusão de produtos, além de alertas de estoque baixo
+- Configurar individualmente quais notificações desejam receber e por qual canal
 
-* Configuration
+## Tecnologias
 
-* Database creation
+- Ruby 3.4.9 / Rails 8.1.2
+- PostgreSQL 15
+- Redis + Sidekiq
+- Docker & Docker Compose
+- Hotwire (Turbo + Stimulus)
 
-* Database initialization
+## Pré-requisitos
 
-* How to run the test suite
+- Docker
+- Docker Compose
+- Make
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup
 
-* Deployment instructions
+```bash
+git clone https://github.com/maiconandersonreis/stockflow.git
+cd stockflow
+cp .env.example .env
+make up
+docker compose run web rails db:create db:migrate
+```
 
-* ...
+## Comandos Make
+
+```
+make up       # sobe os serviços
+make down     # para os containers
+make restart  # reinicia os serviços
+make logs     # logs em tempo real
+make console  # Rails console
+make test     # roda os testes
+```
+
+## Acessos
+
+- Aplicação: http://localhost:3000
+- Sidekiq: http://localhost:3000/sidekiq
+
+## Autor
+
+Maicon Anderson de Oliveira Reis
